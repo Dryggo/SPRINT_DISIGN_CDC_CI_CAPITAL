@@ -1,0 +1,585 @@
+<!doctype html>
+
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SMART FERTILIZER ADVISOR - Gestion des Parcelles</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#e7bdb1",
+              "on-primary-fixed": "#00210a",
+              "secondary-fixed": "#ffdbd0",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c1c9be",
+              "tertiary-container": "#006195",
+              secondary: "#77574d",
+              "on-secondary-container": "#795950",
+              "inverse-primary": "#a0d3a5",
+              "primary-fixed": "#bcefc0",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#22502d",
+              primary: "#204e2b",
+              "on-error": "#ffffff",
+              background: "#fafaee",
+              error: "#ba1a1a",
+              "on-surface": "#1a1c15",
+              "on-tertiary-fixed-variant": "#004b74",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed-variant": "#5d4037",
+              "inverse-on-surface": "#f1f2e6",
+              surface: "#fafaee",
+              "surface-container-high": "#e8e9dd",
+              "surface-dim": "#dadbcf",
+              "on-primary-container": "#afe2b3",
+              tertiary: "#004871",
+              "surface-container-lowest": "#ffffff",
+              outline: "#727970",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#94ccff",
+              "surface-container": "#eeefe3",
+              "on-tertiary-container": "#b3d9ff",
+              "surface-tint": "#3a6843",
+              "primary-fixed-dim": "#a0d3a5",
+              "surface-bright": "#fafaee",
+              "primary-container": "#386641",
+              "on-background": "#1a1c15",
+              "on-tertiary-fixed": "#001d32",
+              "surface-container-highest": "#e3e3d8",
+              "surface-container-low": "#f4f4e9",
+              "surface-variant": "#e3e3d8",
+              "secondary-container": "#fed3c7",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414941",
+              "inverse-surface": "#2f312a",
+              "tertiary-fixed": "#cde5ff",
+              "on-secondary-fixed": "#2c160e",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.75rem",
+              full: "0.75rem",
+            },
+            spacing: {},
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background-color: rgba(227, 227, 216, 0.7);
+      }
+      .custom-gradient-primary {
+        background: linear-gradient(135deg, #204e2b 0%, #386641 100%);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="bg-[#fafaee] dark:bg-[#1a1c15] dock full-width top-0 sticky z-50"
+    >
+      <div
+        class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <span
+            class="material-symbols-outlined text-[#204e2b] dark:text-[#8fd49e]"
+            data-icon="location_on"
+            >location_on</span
+          >
+          <h1
+            class="font-['Manrope'] font-bold text-2xl tracking-tight dark:text-white"
+          >
+            SMART FERTILIZER ADVISOR
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 rounded-full hover:bg-[#e3e3d8]/50 dark:hover:bg-[#414941]/30 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-[#204e2b] dark:text-[#8fd49e]"
+              data-icon="notifications"
+              >notifications</span
+            >
+          </button>
+          <div
+            class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-white shadow-sm"
+          >
+            <img
+              alt="User Profile"
+              data-alt="professional portrait of a middle-aged male agronomist with a friendly expression in outdoor soft natural lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuADbwHHNwJO0uT-TvBGpKZlHLVtjS1WC8_AaycucaKgM1Bfozc_-jdAZsBv67obhHTR03Qmz0Hp07zSoX8GTIzV0mFP2gss9-qt7SV_qM7uynEyg-LT-loe2n2ydPW-mYcVZZFDARBy506ekv_0bMgijspY6i0hi-0B1t-uB3oAAQehWhKVuBnFxzZECgSCgFYGDwbkH4Y04gu_xjXwBR1eKU4beoQM72qLH9bmw-NW1kWZYusxzLRnhINbiYg29Cbs-MSa85xQPA"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-screen-2xl mx-auto px-6 pb-32 pt-8">
+      <!-- Content Header / Action Bar -->
+      <section
+        class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+      >
+        <div>
+          <h2
+            class="font-headline font-extrabold text-4xl text-on-surface tracking-tight mb-2"
+          >
+            Gestion des Parcelles
+          </h2>
+          <p class="font-body text-on-surface-variant max-w-lg">
+            Surveillez l'état de santé de vos sols et gérez vos cultures avec
+            une précision scientifique.
+          </p>
+        </div>
+        <div
+          class="flex items-center gap-3 bg-surface-container-low p-1.5 rounded-full self-start"
+        >
+          <button
+            class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-on-primary shadow-sm transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined text-sm" data-icon="list"
+              >list</span
+            >
+            <span class="font-label text-sm font-semibold">Liste</span>
+          </button>
+          <button
+            class="flex items-center gap-2 px-6 py-2.5 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined text-sm" data-icon="map"
+              >map</span
+            >
+            <span class="font-label text-sm font-semibold">Carte</span>
+          </button>
+        </div>
+      </section>
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Mini-Map Toggle / Quick View (Asymmetric Moment) -->
+        <div class="md:col-span-4 lg:col-span-3 space-y-6">
+          <div
+            class="bg-surface-container rounded-xl overflow-hidden h-[300px] relative group"
+          >
+            <img
+              alt="Map View"
+              class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]"
+              data-alt="top-down satellite view of geometric green farm fields with varying textures and soft natural color palette"
+              data-location="Bordeaux, France"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB45EJ0krLr9J2CLFuY2ZZdPZHLtYtm8IzbKMrFbLYS7kt810hTZrfByJT1AtxS5Ukv9gsS8P7ZyTZmGF2lEJjE2xhEU7w8S0-UmnXJor6tCoede1VCmZxKXx6sdXGTkyuKbSJTydYXfwe5YaSYdbQUKgY867-3_snn4XsDnO196GaUuLpf3Ro1TC9P_fGULqobCrpH9S86JEAOLkYpL5IhVflXglPN_BR3s4r7WTREtHQzenMkVwlql3znbXGFTjUq3VxVNdkEEg"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"
+            ></div>
+            <div
+              class="absolute bottom-4 left-4 right-4 flex justify-between items-end"
+            >
+              <div class="glass-effect p-3 rounded-xl border border-white/20">
+                <p
+                  class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-1"
+                >
+                  Localisation
+                </p>
+                <p class="font-headline font-bold text-on-surface">
+                  Bordeaux Sud
+                </p>
+              </div>
+              <button
+                class="w-12 h-12 custom-gradient-primary rounded-full flex items-center justify-center text-white shadow-lg"
+              >
+                <span class="material-symbols-outlined" data-icon="fullscreen"
+                  >fullscreen</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Stats Summary -->
+          <div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="font-label text-sm text-on-surface-variant"
+                >Parcelles Totales</span
+              >
+              <span class="font-headline font-bold text-xl text-primary"
+                >12</span
+              >
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-label text-sm text-on-surface-variant"
+                >Santé Moyenne</span
+              >
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#386641]"></span>
+                <span class="font-headline font-bold text-xl text-on-surface"
+                  >84%</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Main Parcel List (Scrollable Context) -->
+        <div class="md:col-span-8 lg:col-span-9">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Parcel Card 1 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl overflow-hidden group border border-outline-variant/10 shadow-[0_12px_32px_rgba(26,28,21,0.04)] hover:shadow-[0_20px_48px_rgba(26,28,21,0.08)] transition-all duration-300"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="Vineyard"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-alt="close-up of lush green vineyard rows during early morning with dew drops and soft misty sunlight"
+                  src="champ_palm.jpg"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2"
+                >
+                  <span class="w-2 h-2 rounded-full bg-primary"></span>
+                  <span
+                    class="font-label text-[10px] font-bold uppercase tracking-wider text-on-surface"
+                    >Optimal</span
+                  >
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="font-headline font-bold text-xl text-on-surface">
+                      Le Palmier Sud
+                    </h3>
+                    <p class="font-body text-sm text-on-surface-variant">
+                      Parcelle #082 • 4.2 Hectares
+                    </p>
+                  </div>
+                  <div
+                    class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-sm flex items-center gap-1.5"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="potted_plant"
+                      >potted_plant</span
+                    >
+                    <span
+                      class="font-label text-xs font-bold uppercase tracking-tighter"
+                      >Palnier</span
+                    >
+                  </div>
+                </div>
+                <div class="space-y-4 pt-4 border-t border-surface-container">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-tertiary"
+                        data-icon="water_drop"
+                        >water_drop</span
+                      >
+                      <span class="text-xs font-medium text-on-surface-variant"
+                        >Humidité du Sol</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm font-bold text-on-surface font-headline"
+                      >42%</span
+                    >
+                  </div>
+                  <div
+                    class="w-full h-2 bg-surface-container rounded-full overflow-hidden"
+                  >
+                    <div class="h-full bg-primary w-[42%]"></div>
+                  </div>
+                </div>
+                <button
+                  class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-on-surface font-label text-sm font-bold hover:bg-surface-container-highest transition-colors"
+                >
+                  Détails de la Parcelle
+                </button>
+              </div>
+            </div>
+            <!-- Parcel Card 2 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl overflow-hidden group border border-outline-variant/10 shadow-[0_12px_32px_rgba(26,28,21,0.04)] hover:shadow-[0_20px_48px_rgba(26,28,21,0.08)] transition-all duration-300"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="Wheat field"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-alt="vibrant golden wheat field at sunset with lens flare and warm atmospheric lighting editorial style"
+                  src="champ.jpg"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2"
+                >
+                  <span class="w-2 h-2 rounded-full bg-error"></span>
+                  <span
+                    class="font-label text-[10px] font-bold uppercase tracking-wider text-on-surface"
+                    >Stress Hydrique</span
+                  >
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="font-headline font-bold text-xl text-on-surface">
+                      Palmier Ouest
+                    </h3>
+                    <p class="font-body text-sm text-on-surface-variant">
+                      Parcelle #114 • 12.8 Hectares
+                    </p>
+                  </div>
+                  <div
+                    class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-sm flex items-center gap-1.5"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="grass"
+                      >grass</span
+                    >
+                    <span
+                      class="font-label text-xs font-bold uppercase tracking-tighter"
+                      >Palmier</span
+                    >
+                  </div>
+                </div>
+                <div class="space-y-4 pt-4 border-t border-surface-container">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-tertiary"
+                        data-icon="science"
+                        >science</span
+                      >
+                      <span class="text-xs font-medium text-on-surface-variant"
+                        >Niveau d'Azote</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm font-bold text-on-surface font-headline"
+                      >Basse</span
+                    >
+                  </div>
+                  <div
+                    class="w-full h-2 bg-surface-container rounded-full overflow-hidden"
+                  >
+                    <div class="h-full bg-error w-[18%]"></div>
+                  </div>
+                </div>
+                <button
+                  class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-on-surface font-label text-sm font-bold hover:bg-surface-container-highest transition-colors"
+                >
+                  Détails de la Parcelle
+                </button>
+              </div>
+            </div>
+            <!-- Parcel Card 3 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl overflow-hidden group border border-outline-variant/10 shadow-[0_12px_32px_rgba(26,28,21,0.04)] hover:shadow-[0_20px_48px_rgba(26,28,21,0.08)] transition-all duration-300"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="Sunflower field"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-alt="rows of tall blooming sunflowers facing a clear blue sky with professional agricultural photography lighting"
+                  src="palmier_champ.jpg"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-tertiary-container"
+                  ></span>
+                  <span
+                    class="font-label text-[10px] font-bold uppercase tracking-wider text-on-surface"
+                    >En Croissance</span
+                  >
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="font-headline font-bold text-xl text-on-surface">
+                      Les Palmier Est
+                    </h3>
+                    <p class="font-body text-sm text-on-surface-variant">
+                      Parcelle #056 • 6.5 Hectares
+                    </p>
+                  </div>
+                  <div
+                    class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-sm flex items-center gap-1.5"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="filter_vintage"
+                      >filter_vintage</span
+                    >
+                    <span
+                      class="font-label text-xs font-bold uppercase tracking-tighter"
+                      >Palmier</span
+                    >
+                  </div>
+                </div>
+                <div class="space-y-4 pt-4 border-t border-surface-container">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-tertiary"
+                        data-icon="thermostat"
+                        >thermostat</span
+                      >
+                      <span class="text-xs font-medium text-on-surface-variant"
+                        >Temp. moyenne</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm font-bold text-on-surface font-headline"
+                      >24°C</span
+                    >
+                  </div>
+                  <div
+                    class="w-full h-2 bg-surface-container rounded-full overflow-hidden"
+                  >
+                    <div class="h-full bg-tertiary-container w-[65%]"></div>
+                  </div>
+                </div>
+                <button
+                  class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-on-surface font-label text-sm font-bold hover:bg-surface-container-highest transition-colors"
+                >
+                  Détails de la Parcelle
+                </button>
+              </div>
+            </div>
+            <!-- Empty State / Add New (Visual Balance) -->
+            <div
+              class="border-2 border-dashed border-outline-variant/40 rounded-xl flex flex-col items-center justify-center p-12 text-center group hover:border-primary/40 transition-colors"
+            >
+              <div
+                class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4 group-hover:bg-primary-fixed transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl"
+                  data-icon="add"
+                  >add</span
+                >
+              </div>
+              <h4 class="font-headline font-bold text-on-surface mb-1">
+                Ajouter une parcelle
+              </h4>
+              <p
+                class="font-body text-sm text-on-surface-variant max-w-[200px]"
+              >
+                Enregistrez un nouveau terrain pour commencer le suivi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="fixed bottom-0 w-full rounded-t-[0.75rem] z-50 bg-[#ffffff] dark:bg-[#1a1c15] shadow-[0_-8px_24px_rgba(26,28,21,0.04)]"
+    >
+      <div
+        class="flex justify-around items-center h-20 pb-safe px-4 w-full bg-[#eeefe3] dark:bg-[#23261a]"
+      >
+        <a
+          class="flex flex-col items-center justify-center bg-[#e3e3d8] dark:bg-[#2a2d21] text-[#204e2b] dark:text-[#386641] rounded-xl px-3 py-1.5 transition-all active:scale-90 duration-200"
+          href="../index.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="dashboard"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >dashboard</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Acceuil</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../mes_parcelles/parcelle.html"
+        >
+          <span class="material-symbols-outlined" data-icon="agriculture"
+            >agriculture</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Parcelles</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../analyse_capteurs/analyse_capteur.html"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Analyse</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../fichier_arrosage/arrosage.html"
+        >
+          <span class="material-symbols-outlined" data-icon="water_drop"
+            >water_drop</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Arrosage</span
+          >
+        </a>
+        <!-- <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="person"
+            >person</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Profil</span
+          >
+        </a> -->
+      </div>
+    </nav>
+  </body>
+</html>

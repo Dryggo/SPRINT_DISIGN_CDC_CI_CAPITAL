@@ -1,0 +1,561 @@
+<!doctype html>
+
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#e7bdb1",
+              "on-primary-fixed": "#00210a",
+              "secondary-fixed": "#ffdbd0",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c1c9be",
+              "tertiary-container": "#006195",
+              secondary: "#77574d",
+              "on-secondary-container": "#795950",
+              "inverse-primary": "#a0d3a5",
+              "primary-fixed": "#bcefc0",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#22502d",
+              primary: "#204e2b",
+              "on-error": "#ffffff",
+              background: "#fafaee",
+              error: "#ba1a1a",
+              "on-surface": "#1a1c15",
+              "on-tertiary-fixed-variant": "#004b74",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed-variant": "#5d4037",
+              "inverse-on-surface": "#f1f2e6",
+              surface: "#fafaee",
+              "surface-container-high": "#e8e9dd",
+              "surface-dim": "#dadbcf",
+              "on-primary-container": "#afe2b3",
+              tertiary: "#004871",
+              "surface-container-lowest": "#ffffff",
+              outline: "#727970",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#94ccff",
+              "surface-container": "#eeefe3",
+              "on-tertiary-container": "#b3d9ff",
+              "surface-tint": "#3a6843",
+              "primary-fixed-dim": "#a0d3a5",
+              "surface-bright": "#fafaee",
+              "primary-container": "#386641",
+              "on-background": "#1a1c15",
+              "on-tertiary-fixed": "#001d32",
+              "surface-container-highest": "#e3e3d8",
+              "surface-container-low": "#f4f4e9",
+              "surface-variant": "#e3e3d8",
+              "secondary-container": "#fed3c7",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414941",
+              "inverse-surface": "#2f312a",
+              "tertiary-fixed": "#cde5ff",
+              "on-secondary-fixed": "#2c160e",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.75rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-panel {
+        background: rgba(227, 233, 216, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface font-body min-h-screen pb-32">
+    <!-- TopAppBar -->
+    <header
+      class="bg-[#fafaee] dark:bg-[#1a1c15] docked full-width top-0 sticky z-40"
+    >
+      <div
+        class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <span
+            class="material-symbols-outlined text-[#204e2b] dark:text-[#8fd49e]"
+            data-icon="location_on"
+            >location_on</span
+          >
+          <h1
+            class="font-['Manrope'] font-bold text-2xl tracking-tight dark:text-white"
+          >
+            SMART FERTILIZER ADVISOR
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 hover:bg-[#e3e3d8]/50 dark:hover:bg-[#414941]/30 transition-colors rounded-full"
+          >
+            <span
+              class="material-symbols-outlined text-[#204e2b] dark:text-[#8fd49e]"
+              data-icon="notifications"
+              >notifications</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-screen-2xl mx-auto px-6 py-8">
+      <!-- Hero Section: Title and Quick Stats -->
+      <section class="mb-12">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-6"
+        >
+          <div>
+            <span
+              class="font-label text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2 block"
+              >Parcelle #204 - Secteur Nord</span
+            >
+            <h2
+              class="font-headline text-4xl font-extrabold text-primary leading-tight"
+            >
+              Données Capteurs en Direct
+            </h2>
+          </div>
+          <div class="flex gap-4">
+            <div
+              class="bg-surface-container-low px-4 py-2 rounded-xl flex items-center gap-3"
+            >
+              <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+              <span class="font-label text-sm font-medium text-on-surface"
+                >Transmission active (1.2s)</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Soil Moisture Gauge (Large Feature) -->
+        <div
+          class="md:col-span-7 bg-surface-container rounded-xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[400px]"
+        >
+          <div class="absolute top-0 right-0 p-8">
+            <span
+              class="material-symbols-outlined text-tertiary text-6xl opacity-20"
+              data-icon="water_drop"
+              >water_drop</span
+            >
+          </div>
+          <div>
+            <h3 class="font-headline text-xl font-bold mb-1">
+              Humidité du Sol
+            </h3>
+            <p class="font-body text-sm text-on-surface-variant">
+              Capteur capacitif V3.4
+            </p>
+          </div>
+          <div class="flex flex-col items-center justify-center py-8">
+            <div class="relative w-48 h-48 flex items-center justify-center">
+              <!-- Custom Horizon Indicator style circle -->
+              <svg class="w-full h-full transform -rotate-90">
+                <circle
+                  class="text-surface-container-highest"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="88"
+                  stroke="currentColor"
+                  stroke-width="12"
+                ></circle>
+                <circle
+                  class="text-primary"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="88"
+                  stroke="currentColor"
+                  stroke-dasharray="552.92"
+                  stroke-dashoffset="138.23"
+                  stroke-width="12"
+                ></circle>
+              </svg>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center"
+              >
+                <span class="font-headline text-5xl font-black text-on-surface"
+                  >75%</span
+                >
+                <span
+                  class="font-label text-xs font-bold uppercase text-on-surface-variant tracking-tighter"
+                  >Optimal</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-highest/50 p-4 rounded-xl flex justify-between items-center"
+          >
+            <div class="flex gap-2">
+              <span class="text-xs font-bold text-on-surface-variant"
+                >MIN: 62%</span
+              >
+              <span class="text-xs font-bold text-on-surface-variant"
+                >MAX: 81%</span
+              >
+            </div>
+            <span
+              class="material-symbols-outlined text-primary text-xl"
+              data-icon="trending_up"
+              >trending_up</span
+            >
+          </div>
+        </div>
+        <!-- pH Level (Scientific Metric) -->
+        <div
+          class="md:col-span-5 bg-tertiary text-on-tertiary rounded-xl p-8 flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex justify-between items-start mb-6">
+              <h3 class="font-headline text-xl font-bold">Niveau de pH</h3>
+              <span
+                class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-sm font-label text-[10px] font-bold uppercase"
+                >Précision Lab</span
+              >
+            </div>
+            <div class="flex items-baseline gap-2 mb-8">
+              <span class="font-headline text-7xl font-black italic">6.8</span>
+              <span class="font-body text-lg opacity-80">pH</span>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+              <div class="h-full w-[48%] bg-white rounded-full"></div>
+            </div>
+            <div
+              class="flex justify-between font-label text-[10px] uppercase tracking-widest opacity-70"
+            >
+              <span>Acidique</span>
+              <span>Neutre</span>
+              <span>Alcalin</span>
+            </div>
+            <p
+              class="font-body text-sm leading-relaxed pt-4 border-t border-white/10"
+            >
+              Le niveau est idéal pour la culture actuelle de maïs. Aucune
+              correction nécessaire.
+            </p>
+          </div>
+        </div>
+        <!-- NPK Components (Asymmetric Grid) -->
+        <div
+          class="md:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col gap-4"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <span
+              class="material-symbols-outlined text-secondary"
+              data-icon="science"
+              >science</span
+            >
+            <h3 class="font-headline font-bold">Azote (N)</h3>
+          </div>
+          <div
+            class="bg-surface-container-highest rounded-full h-24 flex items-center justify-center"
+          >
+            <span class="font-headline text-4xl font-black text-secondary"
+              >42</span
+            >
+            <span class="text-sm font-bold text-on-surface-variant ml-2"
+              >mg/kg</span
+            >
+          </div>
+          <div class="flex justify-between items-center px-2">
+            <span
+              class="text-xs font-bold text-secondary-fixed-dim bg-secondary p-1 rounded-sm uppercase"
+              >Cible: 45</span
+            >
+            <span
+              class="material-symbols-outlined text-error text-xl"
+              data-icon="warning"
+              >warning</span
+            >
+          </div>
+        </div>
+        <div
+          class="md:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col gap-4"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <span
+              class="material-symbols-outlined text-secondary"
+              data-icon="grain"
+              >grain</span
+            >
+            <h3 class="font-headline font-bold">Phosphore (P)</h3>
+          </div>
+          <div
+            class="bg-surface-container-highest rounded-full h-24 flex items-center justify-center"
+          >
+            <span class="font-headline text-4xl font-black text-secondary"
+              >18</span
+            >
+            <span class="text-sm font-bold text-on-surface-variant ml-2"
+              >mg/kg</span
+            >
+          </div>
+          <div class="flex justify-between items-center px-2">
+            <span
+              class="text-xs font-bold text-on-secondary-container bg-secondary-container p-1 rounded-sm uppercase"
+              >Cible: 20</span
+            >
+            <span
+              class="material-symbols-outlined text-primary text-xl"
+              data-icon="check_circle"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >check_circle</span
+            >
+          </div>
+        </div>
+        <div
+          class="md:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col gap-4"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <span
+              class="material-symbols-outlined text-secondary"
+              data-icon="earth_proximity"
+              >earth</span
+            >
+            <h3 class="font-headline font-bold">Potassium (K)</h3>
+          </div>
+          <div
+            class="bg-surface-container-highest rounded-full h-24 flex items-center justify-center"
+          >
+            <span class="font-headline text-4xl font-black text-secondary"
+              >156</span
+            >
+            <span class="text-sm font-bold text-on-surface-variant ml-2"
+              >mg/kg</span
+            >
+          </div>
+          <div class="flex justify-between items-center px-2">
+            <span
+              class="text-xs font-bold text-on-secondary-container bg-secondary-container p-1 rounded-sm uppercase"
+              >Cible: 150</span
+            >
+            <span
+              class="material-symbols-outlined text-primary text-xl"
+              data-icon="check_circle"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >check_circle</span
+            >
+          </div>
+        </div>
+        <!-- Historical Trends (Visual Graphic Area) -->
+        <div
+          class="md:col-span-8 glass-panel rounded-xl p-8 min-h-[300px] flex flex-col"
+        >
+          <div class="flex justify-between items-center mb-8">
+            <h3 class="font-headline text-xl font-bold">Tendances 24h</h3>
+            <div class="flex gap-2">
+              <button
+                class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase"
+              >
+                Humidité
+              </button>
+              <button
+                class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase"
+              >
+                NPK
+              </button>
+            </div>
+          </div>
+          <div class="flex-grow flex items-end gap-1 px-2">
+            <!-- Symbolic line chart representation -->
+            <div class="flex-grow h-32 relative">
+              <svg class="w-full h-full preserve-3d" viewbox="0 0 400 100">
+                <path
+                  d="M0,80 Q50,40 100,60 T200,30 T300,50 T400,20"
+                  fill="none"
+                  stroke="#204e2b"
+                  stroke-width="3"
+                ></path>
+                <path
+                  d="M0,80 Q50,40 100,60 T200,30 T300,50 T400,20 L400,100 L0,100 Z"
+                  fill="url(#grad1)"
+                  opacity="0.1"
+                ></path>
+                <defs>
+                  <lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop
+                      offset="0%"
+                      style="stop-color: #204e2b; stop-opacity: 1"
+                    ></stop>
+                    <stop
+                      offset="100%"
+                      style="stop-color: #204e2b; stop-opacity: 0"
+                    ></stop>
+                  </lineargradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="flex justify-between pt-4 border-t border-on-surface-variant/10 mt-4 font-label text-[10px] text-on-surface-variant uppercase font-bold"
+          >
+            <span>06:00</span>
+            <span>12:00</span>
+            <span>18:00</span>
+            <span>Minuit</span>
+          </div>
+        </div>
+        <!-- Field Contextual Data -->
+        <div
+          class="md:col-span-4 bg-white rounded-xl overflow-hidden flex flex-col shadow-[0_12px_32px_rgba(26,28,21,0.06)]"
+        >
+          <div class="h-32 bg-surface-container relative">
+            <img
+              alt="Satellite view of farm land"
+              class="w-full h-full object-cover grayscale opacity-40"
+              data-alt="high resolution satellite top view of agricultural farm land with grid patterns and irrigation channels"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp9khw7oGffcFZ3y5MEqvDKx7Y0m-PsCvb8jzMQWOnuXlyoGGeSO4i4c412F7YfUeXkP4Dt9s4W1o3eWaJZGXFEwtqsnlmpyRrp66FmxofLNbcZp4He4AJLXhYl9gFJeB7wB507kV9BTSEefHNVw9B2x-kuuXudLnc9T6y4EHGp-nZfkU9NHoO4Hksdb7p1bpORNJpdSlnFdI1zdNcRNVHemYPWUrTf_beft9i8U9pAe5-ybNkVp0ShQWcGqA_I2SnOT5s8jTewQ"
+            />
+            <div class="absolute inset-0 bg-primary/10"></div>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-on-surface-variant uppercase"
+                >Temp. Air</span
+              >
+              <span class="font-headline font-bold">24°C</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-on-surface-variant uppercase"
+                >Luminosité</span
+              >
+              <span class="font-headline font-bold">12k Lux</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-on-surface-variant uppercase"
+                >Vitesse Vent</span
+              >
+              <span class="font-headline font-bold">14 km/h</span>
+            </div>
+            <button
+              class="w-full mt-4 py-3 bg-primary text-white rounded-full font-label text-sm font-bold flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg" data-icon="map"
+                >map</span
+              >
+              Voir sur la Carte
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="fixed bottom-0 w-full rounded-t-[0.75rem] z-50 bg-[#ffffff] dark:bg-[#1a1c15] shadow-[0_-8px_24px_rgba(26,28,21,0.04)]"
+    >
+      <div
+        class="flex justify-around items-center h-20 pb-safe px-4 w-full bg-[#eeefe3] dark:bg-[#23261a]"
+      >
+        <a
+          class="flex flex-col items-center justify-center bg-[#e3e3d8] dark:bg-[#2a2d21] text-[#204e2b] dark:text-[#386641] rounded-xl px-3 py-1.5 transition-all active:scale-90 duration-200"
+          href="../index.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="dashboard"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >dashboard</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Acceuil</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../mes_parcelles/parcelle.html"
+        >
+          <span class="material-symbols-outlined" data-icon="agriculture"
+            >agriculture</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Parcelles</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../analyse_capteurs/analyse_capteur.html"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Analyse</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../fichier_arrosage/arrosage.html"
+        >
+          <span class="material-symbols-outlined" data-icon="water_drop"
+            >water_drop</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Arrosage</span
+          >
+        </a>
+        <!-- <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="person"
+            >person</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Profil</span
+          >
+        </a> -->
+      </div>
+    </nav>
+  </body>
+</html>

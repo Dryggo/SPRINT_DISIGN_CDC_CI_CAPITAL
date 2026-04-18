@@ -1,0 +1,478 @@
+<!doctype html>
+
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f1f2e6",
+              secondary: "#77574d",
+              "on-secondary-container": "#795950",
+              "tertiary-container": "#006195",
+              "on-primary-fixed-variant": "#22502d",
+              tertiary: "#004871",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e3e3d8",
+              "surface-tint": "#3a6843",
+              "surface-container": "#eeefe3",
+              "on-primary-container": "#afe2b3",
+              "on-secondary-fixed": "#2c160e",
+              "primary-fixed-dim": "#a0d3a5",
+              "primary-container": "#386641",
+              error: "#ba1a1a",
+              background: "#fafaee",
+              "secondary-fixed": "#ffdbd0",
+              "primary-fixed": "#bcefc0",
+              "on-tertiary": "#ffffff",
+              "on-background": "#1a1c15",
+              "on-primary": "#ffffff",
+              surface: "#fafaee",
+              "on-secondary-fixed-variant": "#5d4037",
+              "on-tertiary-container": "#b3d9ff",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e3e3d8",
+              "surface-dim": "#dadbcf",
+              "on-secondary": "#ffffff",
+              "surface-bright": "#fafaee",
+              "surface-container-low": "#f4f4e9",
+              primary: "#204e2b",
+              outline: "#727970",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e8e9dd",
+              "on-surface-variant": "#414941",
+              "outline-variant": "#c1c9be",
+              "tertiary-fixed-dim": "#94ccff",
+              "secondary-container": "#fed3c7",
+              "inverse-surface": "#2f312a",
+              "tertiary-fixed": "#cde5ff",
+              "on-tertiary-fixed": "#001d32",
+              "inverse-primary": "#a0d3a5",
+              "secondary-fixed-dim": "#e7bdb1",
+              "on-primary-fixed": "#00210a",
+              "on-surface": "#1a1c15",
+              "on-tertiary-fixed-variant": "#004b74",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface font-body selection:bg-primary/20">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#eeefe3] shadow-[0_12px_32px_rgba(26,28,21,0.06)] flex items-center justify-between px-6 h-16 w-full"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="material-symbols-outlined text-[#204e2b] p-2 hover:bg-[#e3e3d8]/50 rounded-full transition-all"
+        >
+          menu
+        </button>
+        <h1
+          class="font-headline font-black text-[#204e2b] tracking-tighter text-lg uppercase"
+        >
+          SMART FERTILIZER ADVISOR
+        </h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <span
+          class="font-headline font-bold text-lg tracking-tight text-[#204e2b]"
+          >Arrosage</span
+        >
+        <div
+          class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/20"
+        >
+          <img
+            alt="User Profile"
+            data-alt="close up professional portrait of a modern farmer wearing a clean cap and denim shirt in a bright office environment"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2uKlfJ18_wdSNFfXtzZR4pnBJqD1b3L18_hCXWR-HVCgapazGifvWh8t3s_0-_zk7-R8g-ymb_pPjuqqWANjDSLDuq6biBOT9FEkEBKOWCE8901BWpYQmGHr2m6TIJAPIctP5GZFld1B3_nRMkegcQCNkUGA1QhuUeiEs6qTFKEPbPl3xAUCQfbQ38QzjZnzCQl88N14qPFKlT1V6SYdY7edSBeDuD2t_yT-GjtqbchKXpGzGRxAVhurq3OFIHh53Hdw77kiQcQ"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 pb-28 px-4 md:px-8 max-w-7xl mx-auto">
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- AI Mode & Critical Threshold (Main Left) -->
+        <div class="md:col-span-8 space-y-6">
+          <!-- AI Controller Card -->
+          <section
+            class="bg-surface-container-lowest rounded-full p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 border border-outline-variant/10"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >psychology</span
+                >
+              </div>
+              <div>
+                <h2 class="font-headline font-bold text-on-surface">
+                  Mode Automatique IA
+                </h2>
+                <p class="text-sm text-on-surface-variant">
+                  L'irrigation s'adapte en temps réel aux capteurs
+                </p>
+              </div>
+            </div>
+            <label
+              class="relative inline-flex items-center cursor-pointer group"
+            >
+              <input checked="" class="sr-only peer" type="checkbox" value="" />
+              <div
+                class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"
+              ></div>
+              <span class="ms-3 text-sm font-semibold text-primary">ACTIF</span>
+            </label>
+          </section>
+          <!-- Moisture Threshold Slider -->
+          <section class="bg-surface-container rounded-full p-8 space-y-6">
+            <div class="flex justify-between items-center">
+              <h3 class="font-headline font-bold text-on-surface">
+                Seuil d'Humidité Critique
+              </h3>
+              <span
+                class="bg-tertiary text-on-tertiary px-4 py-1 rounded-full font-bold"
+                >40%</span
+              >
+            </div>
+            <div class="relative pt-1">
+              <div class="flex mb-2 items-center justify-between">
+                <span
+                  class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-on-surface-variant"
+                  >Sec</span
+                >
+                <span
+                  class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-on-surface-variant"
+                  >Saturé</span
+                >
+              </div>
+              <div
+                class="overflow-hidden h-3 mb-4 text-xs flex rounded-full bg-surface-container-highest"
+              >
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-tertiary rounded-l-full"
+                  style="width: 40%"
+                ></div>
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-outline-variant/30"
+                  style="width: 60%"
+                ></div>
+              </div>
+              <p class="text-sm text-on-surface-variant italic">
+                Le système déclenchera l'arrosage automatiquement sous ce seuil.
+              </p>
+            </div>
+          </section>
+          <!-- Parcels List -->
+          <section class="space-y-4">
+            <h3 class="font-headline font-bold text-xl px-2">
+              État des Parcelles
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Parcel Item -->
+              <div
+                class="bg-surface-container-lowest p-5 rounded-full border border-outline-variant/5 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="font-bold text-on-surface">Parcelle Nord A1</h4>
+                    <span class="text-xs text-on-surface-variant"
+                      >Culture : Maïs doux</span
+                    >
+                  </div>
+                  <span class="material-symbols-outlined text-primary"
+                    >water_drop</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden"
+                  >
+                    <div class="bg-primary h-full w-[65%]"></div>
+                  </div>
+                  <span class="text-xs font-bold text-primary">65%</span>
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                  <span
+                    class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant"
+                    >Statut : Optimal</span
+                  >
+                  <button
+                    class="text-[10px] font-bold text-tertiary uppercase hover:underline"
+                  >
+                    Détails
+                  </button>
+                </div>
+              </div>
+              <!-- Parcel Item -->
+              <div
+                class="bg-surface-container-lowest p-5 rounded-full border border-outline-variant/5 shadow-sm"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="font-bold text-on-surface">Verger Sud</h4>
+                    <span class="text-xs text-on-surface-variant"
+                      >Culture : Pommiers</span
+                    >
+                  </div>
+                  <span class="material-symbols-outlined text-tertiary"
+                    >warning</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden"
+                  >
+                    <div class="bg-error h-full w-[32%]"></div>
+                  </div>
+                  <span class="text-xs font-bold text-error">32%</span>
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                  <span
+                    class="text-[10px] uppercase tracking-widest font-bold text-error"
+                    >Statut : Critique</span
+                  >
+                  <button
+                    class="text-[10px] font-bold text-tertiary uppercase hover:underline"
+                  >
+                    Arroser
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Weather & Calendar (Sidebar Right) -->
+        <div class="md:col-span-4 space-y-6">
+          <!-- Weather & Evapotranspiration -->
+          <section
+            class="bg-tertiary rounded-full p-6 text-on-tertiary overflow-hidden relative"
+          >
+            <div class="relative z-10">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h3 class="font-headline font-bold">
+                    Météo &amp; Prévisions
+                  </h3>
+                  <p class="text-xs text-on-tertiary-container">
+                    Secteur: Beauce, France
+                  </p>
+                </div>
+                <span class="material-symbols-outlined text-4xl">wb_sunny</span>
+              </div>
+              <div
+                class="bg-on-tertiary-fixed-variant/20 rounded-xl p-4 backdrop-blur-sm border border-on-tertiary-container/10"
+              >
+                <span class="text-[10px] uppercase tracking-wider font-bold"
+                  >Évapotranspiration (ET0)</span
+                >
+                <div class="flex items-end gap-2 mt-1">
+                  <span class="text-3xl font-black">4.2</span>
+                  <span class="text-sm font-medium pb-1">mm/jour</span>
+                </div>
+                <p class="text-xs mt-2 text-on-tertiary-container italic">
+                  Demande en eau élevée prévue pour demain.
+                </p>
+              </div>
+            </div>
+            <!-- Decorative Circle -->
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"
+            ></div>
+          </section>
+          <!-- Mini Calendar Schedule -->
+          <section class="bg-surface-container-high rounded-full p-6">
+            <div class="flex justify-between items-center mb-4 px-2">
+              <h3 class="font-headline font-bold text-on-surface">
+                Cycles Manuels
+              </h3>
+              <button class="material-symbols-outlined text-primary">
+                add_circle
+              </button>
+            </div>
+            <div class="space-y-3">
+              <div
+                class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/10"
+              >
+                <div
+                  class="bg-secondary/10 text-secondary w-10 h-10 rounded-lg flex flex-col items-center justify-center font-bold text-xs leading-none"
+                >
+                  <span>14</span>
+                  <span class="text-[8px] uppercase">Oct</span>
+                </div>
+                <div class="flex-1">
+                  <p class="text-xs font-bold">Zone Est - Goutte-à-goutte</p>
+                  <p class="text-[10px] text-on-surface-variant">
+                    05:00 • 45 min
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/10 opacity-60"
+              >
+                <div
+                  class="bg-secondary/10 text-secondary w-10 h-10 rounded-lg flex flex-col items-center justify-center font-bold text-xs leading-none"
+                >
+                  <span>16</span>
+                  <span class="text-[8px] uppercase">Oct</span>
+                </div>
+                <div class="flex-1">
+                  <p class="text-xs font-bold">Serre Principale</p>
+                  <p class="text-[10px] text-on-surface-variant">
+                    06:30 • 20 min
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="w-full mt-4 py-2 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-primary/10 transition-colors"
+            >
+              Voir le calendrier complet
+            </button>
+          </section>
+          <!-- Data Card: Water Usage -->
+          <div
+            class="bg-surface-container-lowest rounded-full p-6 border border-outline-variant/10 flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-[10px] uppercase font-bold text-on-surface-variant"
+              >
+                Consommation Hebdo
+              </p>
+              <p class="text-xl font-black text-tertiary">1,240 m³</p>
+            </div>
+            <div
+              class="w-12 h-12 rounded-full border-4 border-tertiary-fixed border-t-tertiary flex items-center justify-center"
+            >
+              <span class="text-[10px] font-bold">78%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="fixed bottom-0 w-full rounded-t-[0.75rem] z-50 bg-[#ffffff] dark:bg-[#1a1c15] shadow-[0_-8px_24px_rgba(26,28,21,0.04)]"
+    >
+      <div
+        class="flex justify-around items-center h-20 pb-safe px-4 w-full bg-[#eeefe3] dark:bg-[#23261a]"
+      >
+        <a
+          class="flex flex-col items-center justify-center bg-[#e3e3d8] dark:bg-[#2a2d21] text-[#204e2b] dark:text-[#386641] rounded-xl px-3 py-1.5 transition-all active:scale-90 duration-200"
+          href="../index.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="dashboard"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >dashboard</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Acceuil</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../mes_parcelles/parcelle.html"
+        >
+          <span class="material-symbols-outlined" data-icon="agriculture"
+            >agriculture</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Parcelles</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../analyse_capteurs/analyse_capteur.html"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Analyse</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="../fichier_arrosage/arrosage.html"
+        >
+          <span class="material-symbols-outlined" data-icon="water_drop"
+            >water_drop</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Arrosage</span
+          >
+        </a>
+        <!-- <a
+          class="flex flex-col items-center justify-center text-[#414941] dark:text-[#c1c9be] px-3 py-1.5 hover:bg-[#f4f4e9] dark:hover:bg-[#23261a] rounded-xl transition-all active:scale-90 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="person"
+            >person</span
+          >
+          <span
+            class="font-['Inter'] text-[10px] font-semibold uppercase tracking-wider"
+            >Profil</span
+          >
+        </a> -->
+      </div>
+    </nav>
+
+    <!-- Floating Action Button - Logic suggests only on Dashboard/Home, but context here is Irrigation Screen which is a Task Hub -->
+  </body>
+</html>
